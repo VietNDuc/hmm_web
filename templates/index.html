@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <h1>This is the future of humankind. A toolbox AI is developed by a AI. 
+        </h1>
+        <link rel="stylesheet" href="../static/main.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type=text/javascript>
+            $(function(){
+                $('a#process').bind('click', function(){
+                    $.post('/', {
+                        sentence: $('textarea[name="sentence"]').val(),
+                    }, function(data){
+                        console.log(data.result);
+                        $('textarea[name="rs"]').val(JSON.stringify(data.result));
+                    });
+                    return false;
+                });    
+            });
+        </script>
+    </head>
+    
+    <body>  
+        <form>
+            <p><label for='label'> Input your sentence:</label></p>
+            <textarea id='sentence' name='sentence' rows='20' cols='100'>Hello guys, my name is Viet. Today i am gonna show your how does HMM works for Pos Tagging task! 
+            </textarea>
+            <br><br>
+            <a href=# id=process><button class='btn btn-default'>Submit</button></a> 
+        </form>
+        <form>
+            <p><label> Result:</label></p>
+            <textarea id='rs' name='rs' rows='20' cols='100'></textarea>
+        </form>
+   </body> 
+</html> 
